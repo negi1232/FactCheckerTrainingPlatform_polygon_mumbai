@@ -11,11 +11,12 @@ contract class_room {
 
     constructor() {
         teachers[msg.sender] = true;
-        teacher_addresslist.push(msg.sender);
+        teacher_address_list.push(msg.sender);
     }
 
     modifier isTeacher() {
         require(teachers[msg.sender] == true, "Caller is not teachers");
+        _;
     }
 
     function check_teacher(address _target) internal view returns (bool res) {
